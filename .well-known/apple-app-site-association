@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["42V57LFDDL.com.cgjunghelpdesk.GuidedListening"],
+        "components": [
+          { "/": "/e/*", "comment": "Episode links, optional ?t= seconds" }
+        ]
+      }
+    ]
+  }
+}
