@@ -3,29 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGJung Helpdesk — CGJung Helpdesk</title>
-<style>
-  body { margin: 0; background: #131110; color: #F3EEE6; font-family: -apple-system, Georgia, serif;
-         display: flex; min-height: 100vh; align-items: center; justify-content: center; }
-  .card { max-width: 420px; padding: 40px 28px; text-align: center; }
-  .mark { font-size: 44px; font-weight: 700; } .mark span { color: #E0524D; }
-  h1 { font-size: 22px; font-weight: 600; margin: 18px 0 6px; }
-  p { color: #A79E92; font-size: 15px; line-height: 1.5; }
-  a.btn { display: inline-block; margin-top: 18px; background: #D4A95E; color: #131110;
-          text-decoration: none; font-weight: 600; padding: 14px 26px; border-radius: 12px; }
-  a.quiet { display: block; margin-top: 14px; color: #7C756B; font-size: 13px; }
-</style>
+<title>Jung Helpdesk — a new way through a podcast</title>
+<meta name="description" content="The C.G. Jung Helpdesk podcast as a guided path: curated journeys, a star map of every episode, and transcripts you can search. A free iPhone app.">
+<meta property="og:title" content="Jung Helpdesk — a new way through a podcast">
+<meta property="og:description" content="Curated journeys, a star map of every episode, and transcripts you can search. The C.G. Jung Helpdesk podcast, with a guide who walks with you.">
+<meta property="og:image" content="https://cgjunghelpdesk.github.io/img/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cgjunghelpdesk.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#131110">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&display=swap">
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
-  <div class="card">
-    <div class="mark">JH<span>.</span></div>
-    <h1>CGJung Helpdesk</h1>
-    <p>An episode of the C.G.&thinsp;Jung Helpdesk podcast. If the Jung Helpdesk
-    app is installed, this link opens the episode right there.</p>
-    <a class="btn" href="https://redcircle.com/shows/c-g-jung-helpdesk">Listen on RedCircle</a>
-    <a class="quiet" href="https://linktr.ee/cgjunghelpdesk">More from the podcast</a>
-    <a class="quiet" href="/support.html">App support</a>
-    <a class="quiet" href="/privacy.html">Privacy policy</a>
-  </div>
+
+<header class="top">
+  <a class="brand" href="/"><img src="/img/icon.png" alt="" width="34" height="34"><span>Jung Helpdesk</span></a>
+  <nav>
+    <a href="#map">The map</a>
+    <a href="#journeys">Journeys</a>
+    <a href="#search">Search</a>
+    <a class="nav-cta" href="#get">Get the app</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <p class="eyebrow">The companion app · iPhone</p>
+      <h1>A new way through a podcast.</h1>
+      <p class="lede">The <em>C.G. Jung Helpdesk</em> is a podcast about Jung's ideas: more than sixty conversations, nearly fifty hours. This app turns them into journeys, a star map, and a guide who walks with you.</p>
+      <div class="cta-row" id="get">
+        <a class="btn" href="#" data-store>Coming soon to the App Store</a>
+        <a class="btn ghost" href="https://linktr.ee/cgjunghelpdesk">Listen to the podcast</a>
+      </div>
+      <p class="fine">Free. No account, no ads, no tracking.</p>
+    </div>
+    <div class="hero-phone">
+      <div class="phone"><img src="/img/02-map.jpg" alt="The star map: every episode a coloured star, joined by thin lines" width="660" height="1434"></div>
+    </div>
+  </section>
+
+  <section class="band" id="map">
+    <div class="band-phone">
+      <div class="phone"><img src="/img/08-map-selected.jpg" alt="One star selected: Archetypes and the Collective Unconscious, its connections lit in brass" width="660" height="1434" loading="lazy"></div>
+    </div>
+    <div class="band-copy">
+      <p class="eyebrow">The map</p>
+      <h2>Every episode is a star. The lines are doors.</h2>
+      <p>Six territories, from the shadow to the numinous, each in its own colour. Tap a star and its neighbours light up: related episodes, each with a spoken reason why they belong together.</p>
+      <ul class="legend">
+        <li><i style="background:#D4A95E"></i>The Psyche</li>
+        <li><i style="background:#C48FB4"></i>Shadow &amp; Self</li>
+        <li><i style="background:#6FBFB4"></i>Dreams &amp; the Numinous</li>
+        <li><i style="background:#D48A6E"></i>At the Movies</li>
+        <li><i style="background:#9DB878"></i>Everyday</li>
+        <li><i style="background:#7C756B"></i>Jung Himself</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band flip" id="journeys">
+    <div class="band-phone">
+      <div class="phone"><img src="/img/04-journey.jpg" alt="A journey page: The Map of the Psyche, three of fifteen stops walked" width="660" height="1434" loading="lazy"></div>
+    </div>
+    <div class="band-copy">
+      <p class="eyebrow">Journeys</p>
+      <h2>Follow a path, one stop at a time.</h2>
+      <p>Five curated journeys put the episodes in an order that builds. When one ends, the next stop plays. Put a journey down and pick it up weeks later; your place is kept.</p>
+      <ol class="journeys">
+        <li>The Map of the Psyche <span>15 stops</span></li>
+        <li>Shadow, Self &amp; Individuation <span>11 stops</span></li>
+        <li>Dreams, Symbols &amp; the Numinous <span>13 stops</span></li>
+        <li>Jung at the Movies <span>8 stops</span></li>
+        <li>Jung in Everyday Life <span>14 stops</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" id="search">
+    <div class="band-phone">
+      <div class="phone"><img src="/img/03-search.jpg" alt="Searching for nightmare: three episodes where the word is spoken, with the sentence shown" width="660" height="1434" loading="lazy"></div>
+    </div>
+    <div class="band-copy">
+      <p class="eyebrow">Search</p>
+      <h2>Search the words actually spoken.</h2>
+      <p>Every episode has a transcript, and the app searches all of them. Type <em>nightmares</em> and you get the sentence, the episode, and the moment. One tap and you are listening from there.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Made for listening</h2>
+    <div class="grid">
+      <div><h3>Starts where the talk does</h3><p>Intros and outros are trimmed, with undo one tap away.</p></div>
+      <div><h3>Offline, transcripts included</h3><p>Save an episode and its words come along for the flight.</p></div>
+      <div><h3>It learns your taste</h3><p>Heart what lands. Suggestions always say why they are there.</p></div>
+      <div><h3>No streaks, no guilt</h3><p>Progress and badges, never deadlines or nagging.</p></div>
+      <div><h3>Your data stays yours</h3><p>Everything lives on your phone. Export it as a file any time.</p></div>
+      <div><h3>New episodes, if you ask</h3><p>A quiet notification when a conversation is released. Nothing else.</p></div>
+    </div>
+  </section>
+
+  <section class="guide">
+    <img src="/img/marcus.jpg" alt="Marcus, host of the podcast" width="120" height="120" loading="lazy">
+    <div>
+      <p class="eyebrow">Your guide</p>
+      <h2>Hi, I'm Marcus.</h2>
+      <p>A few years ago I fell into Jung's Collected Works and never quite climbed back out. So I started a Meetup group, and then this podcast, to think through his ideas out loud with other people. Every episode grew out of a live event: real questions, honest discussion, and Jung's own words at the center.</p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <img src="/img/icon.png" alt="" width="84" height="84" loading="lazy">
+    <h2>Pick what pulls you.</h2>
+    <div class="cta-row">
+      <a class="btn" href="#" data-store>Coming soon to the App Store</a>
+      <a class="btn ghost" href="https://linktr.ee/cgjunghelpdesk">Listen to the podcast</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 C.G. Jung Helpdesk</span>
+  <a href="/support.html">Support</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="https://www.meetup.com/cgjunghelpdesk">Meetup</a>
+</footer>
+
+<script src="/site.js"></script>
 </body>
 </html>
