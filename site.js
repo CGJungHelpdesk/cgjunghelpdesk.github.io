@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 // The one line to change when the app is live: paste the App Store link.
 // Example: "https://apps.apple.com/app/jung-helpdesk/id1234567890"
-const APP_STORE_URL = "";
+const APP_STORE_URL = "https://apps.apple.com/app/jung-helpdesk/id6806770673";
 // ─────────────────────────────────────────────────────────────────────────
 
 for (const link of document.querySelectorAll("[data-store]")) {
