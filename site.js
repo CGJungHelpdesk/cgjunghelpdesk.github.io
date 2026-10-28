@@ -2,6 +2,12 @@
 // The one line to change when the app is live: paste the App Store link.
 // Example: "https://apps.apple.com/app/jung-helpdesk/id1234567890"
 const APP_STORE_URL = "https://apps.apple.com/app/jung-helpdesk/id6806770673";
+
+// The Android waitlist (MailerLite). Both numbers are in MailerLite's embed
+// code for the form: ".../jsonp/<ACCOUNT>/forms/<FORM>/subscribe".
+// Empty means the list is not connected yet and the form says so.
+const MAILERLITE_ACCOUNT = "2740905";
+const MAILERLITE_FORM = "202314437912167772";
 // ─────────────────────────────────────────────────────────────────────────
 
 for (const link of document.querySelectorAll("[data-store]")) {
@@ -67,3 +73,47 @@ if (canvas) {
   resize(); draw();
   addEventListener("resize", () => { resize(); if (still) draw(); });
 }
+
+// Android waitlist: one email field, sent to MailerLite, which sends the
+// confirmation email itself (double opt-in). Nothing is stored on this site.
+const waitForm = document.getElementById("waitlist");
+if (waitForm) {
+  const status = document.getElementById("wait-status");
+  const input = document.getElementById("wait-email");
+  const button = waitForm.querySelector("button");
+  const say = (text, isError = false) => {
+    status.textContent = text;
+    status.classList.toggle("error", isError);
+  };
+  waitForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!input.checkValidity()) {
+      say("That doesn't look like an email address yet.", true);
+      input.focus();
+      return;
+    }
+    if (!MAILERLITE_ACCOUNT || !MAILERLITE_FORM) {
+      say("The waitlist isn't open yet. Please try again soon.", true);
+      return;
+    }
+    button.disabled = true;
+    say("Sending…");
+    try {
+      const body = new FormData();
+      body.append("fields[email]", input.value.trim());
+      body.append("ml-submit", "1");
+      body.append("anticsrf", "true");
+      const url = `https://assets.mailerlite.com/jsonp/${MAILERLITE_ACCOUNT}/forms/${MAILERLITE_FORM}/subscribe`;
+      const response = await fetch(url, { method: "POST", body });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success === false) throw new Error("rejected");
+      waitForm.reset();
+      say("Thank you. Check your inbox and confirm, then you're on the list.");
+    } catch {
+      say("That didn't go through. Please try again, or write to jung-helpdesk@mail.de.", true);
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
+

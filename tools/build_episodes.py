@@ -93,6 +93,7 @@ PAGE = """<!doctype html>
   <span>© 2026 C.G. Jung Helpdesk</span>
   <a href="/support.html">Support</a>
   <a href="/privacy.html">Privacy</a>
+  <a href="/impressum.html">Impressum</a>
 </footer>
 <script src="/site.js"></script>
 <script>

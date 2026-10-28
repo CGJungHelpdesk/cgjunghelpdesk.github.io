@@ -22,6 +22,12 @@ em { color:var(--ink); font-style:normal; }
 .eyebrow { font:11px var(--mono); letter-spacing:.17em; text-transform:uppercase; color:var(--brass); margin-bottom:14px; }
 .fine { font-size:13px; color:var(--faint); margin-top:14px; }
 
+/* Android announcement bar */
+.announce { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:6px 12px; padding:11px 24px; background:var(--surface2); border-bottom:1px solid var(--line); color:var(--ink); font-size:15px; text-decoration:none; text-align:center; }
+.announce-tag { font:11px var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--on-brass); background:var(--brass); border-radius:999px; padding:3px 10px; }
+.announce-link { color:var(--brass); text-decoration:underline; text-underline-offset:3px; }
+.announce:hover .announce-link { color:var(--ink); }
+
 /* Top bar */
 .top { display:flex; align-items:center; justify-content:space-between; gap:16px; max-width:1120px; margin:0 auto; padding:20px 24px; }
 .brand { display:flex; align-items:center; gap:11px; color:var(--ink); text-decoration:none; font:600 17px var(--display); }
@@ -30,7 +36,9 @@ em { color:var(--ink); font-style:normal; }
 .top nav a { color:var(--soft); text-decoration:none; }
 .top nav a:hover { color:var(--ink); }
 .top nav .nav-cta { color:var(--brass); }
-@media (max-width:640px) { .top nav a:not(.nav-cta) { display:none; } }
+.top nav .nav-android { color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:4px 12px; }
+@media (max-width:640px) { .top nav a:not(.nav-cta):not(.nav-android) { display:none; } .top nav { gap:14px; } .brand span, .top nav a { white-space:nowrap; } }
+@media (max-width:420px) { .top nav .nav-cta { display:none; } }
 
 /* Buttons */
 .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
@@ -77,6 +85,27 @@ em { color:var(--ink); font-style:normal; }
 .guide img { border-radius:50%; border:2px solid var(--brass); flex:none; }
 .guide p:not(.eyebrow) { margin-top:14px; }
 @media (max-width:640px) { .guide { flex-direction:column; gap:22px; } }
+
+/* Android note in the hero */
+.android-note { display:block; max-width:520px; margin-top:22px; padding:14px 18px; border:1px solid var(--brass); border-radius:14px; background:rgba(212,169,94,.08); color:var(--soft); font-size:15px; line-height:1.5; text-decoration:none; }
+.android-note b { color:var(--brass); font-weight:600; }
+.android-note:hover { background:rgba(212,169,94,.14); }
+
+/* Android waitlist */
+.waitlist { max-width:760px; margin:8px auto 40px; padding:56px 40px 48px; border:1px solid var(--brass); border-radius:24px; background:linear-gradient(180deg, rgba(212,169,94,.10), rgba(212,169,94,.02)); text-align:center; }
+@media (max-width:820px) { .waitlist { margin:8px 16px 32px; padding:44px 22px 36px; } }
+.waitlist p { margin-left:auto; margin-right:auto; }
+.waitlist h2 + p { margin-top:14px; }
+.wait-form { display:flex; gap:10px; max-width:460px; margin:28px auto 0; }
+.wait-form input { flex:1; min-width:0; min-height:52px; padding:0 18px; border-radius:14px; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:16px var(--body); }
+.wait-form input::placeholder { color:var(--faint); }
+.wait-form input:focus-visible { outline:2px solid var(--brass); outline-offset:2px; border-color:transparent; }
+.wait-form .btn { border:0; cursor:pointer; font-family:var(--body); }
+.wait-form .btn[disabled] { opacity:.6; cursor:default; }
+.wait-status { min-height:1.6em; margin-top:14px; font-size:15px; color:var(--ink); }
+.wait-status.error { color:#E0907A; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+@media (max-width:480px) { .wait-form { flex-direction:column; } }
 
 /* Closing */
 .closing { text-align:center; padding:88px 24px 96px; border-top:1px solid var(--line); }
