@@ -73,7 +73,9 @@ PAGE = """<!doctype html>
   </div>
   <p class="ep-sum">{summary}</p>
   <div class="cta-row">
-    <a class="btn ghost" href="{listen}">Listen on RedCircle</a>
+    <a class="btn ghost" href="https://podcasts.apple.com/podcast/id1649020592">Apple Podcasts</a>
+    <a class="btn ghost" href="https://open.spotify.com/show/1J6ttKWPlVkyOfUCtwyQo2">Spotify</a>
+    <a class="btn ghost" href="{listen}">All podcast apps</a>
   </div>
 
   <section class="ep-pitch">
